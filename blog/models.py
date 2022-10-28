@@ -9,7 +9,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # author : 추후 작성 예정
-
+    class Meta:
+        # 쿼리셋에서 order_by를 지정하지 않았을 때, 사용되는 기본 정렬
+        ordering = ["-id"]
 
     def __str__(self):
         return f'[{self.pk}]{self.title}'

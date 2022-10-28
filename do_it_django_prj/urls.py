@@ -25,5 +25,6 @@ def root(request):
 urlpatterns = [
     path('', root), # 해당주소로 요청이 생기면 이 함수가 처리를 해줄거얌
     path('blog/', include('blog.urls')),
+    path('diary/', include('diary.urls')),
     path("admin/", admin.site.urls),
 ]

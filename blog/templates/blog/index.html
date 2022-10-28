@@ -39,26 +39,23 @@
 
 <br>
 
-        <!-- Page content-->
-        <div class="container">
-          <div class="row">
-              <!-- Blog entries-->
-              <div class="col">
-                  <!-- Featured blog post-->
-                  <div class="card mb-4">
-                      <div class="card-body">
-                         {% for post in post_list %}
-                          <div class="small text-muted">{{post.create_at}}</div>
-                          <h2 class="card-title">{{post.title}}</h2>
-                          <p class="card-text">{{post.content}}</p>
-                          <a class="btn btn-primary" href="#!">Read more →</a>
-                         {% endfor %}
-                      </div>
+    <!-- Page content-->
+    <div class="container">
+      <div class="row">
+          <!-- Blog entries-->
+          <div class="col">
+              <!-- Featured blog post-->
+              {% for post in post_list %}
+              <div class="card mb-4">
+                  <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                      <div class="small text-muted">{{post.create_at}}</div>
+                      <h2 class="card-title">{{post.title}}</h2>
+                      <p class="card-text">{{post.content}}</p>
+                      <a class="btn btn-primary" href="/blog/{{post.pk}}">Read more →</a>
                   </div>
-                </div>
               </div>
-            </div>
-          </div>
+              {% endfor %}
 
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" crossorigin = "anonymous"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" crossorigin = "anonymous"></script>
