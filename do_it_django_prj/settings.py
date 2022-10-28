@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-u&iby%#t8$9vkv5g4s&d2ty5pls&#e(q=!ouojtp=6p5@k5x2)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'a196-121-159-54-81.jp.ngrok.io']
 
 
 # Application definition
@@ -131,4 +131,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django-debug-toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#configure-internal-ips
+# debug toolbar 띄울 IP 선택
 INTERNAL_IPS = ["127.0.0.1",]
