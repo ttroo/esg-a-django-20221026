@@ -1,65 +1,16 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset = "utf-8"/> <!--약속-->
-        <title>진실이의 스윗홈페이지</title>
-        <link href = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel = "stylesheet" type = "text/css">
-    </head>
-    <body>
+{% extends "blog/base.html" %}
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="./index.html">되자 되자 장고천재가 되자</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./blog_list.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./about_me.html">About Me</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </nav>
+{% block content %}
+    {% for post in post_list %}
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <h4>{{ post.created_at }}</h4>
+        <p>{{ post.content }}</p>
+    {% endfor %}
 
-<br>
-
-    <!-- Page content-->
-    <div class="container">
-      <div class="row">
-          <!-- Blog entries-->
-          <div class="col">
-              <!-- Featured blog post-->
-              {% for post in post_list %}
-              <div class="card mb-4">
-                  <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                      <div class="small text-muted">{{post.create_at}}</div>
-                      <h2 class="card-title">{{post.title}}</h2>
-                      <p class="card-text">{{post.content}}</p>
-                      <a class="btn btn-primary" href="/blog/{{post.pk}}">Read more →</a>
-                  </div>
-              </div>
-              {% endfor %}
-
-        <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" crossorigin = "anonymous"></script>
-        <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" crossorigin = "anonymous"></script>
-        <script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" crossorigin = "anonymous"></script>
-
-    </body>
-</html>
+    <hr/>
+    <a href="/blog/new/">새 포스팅 쓰기</a>
+{% endblock %}

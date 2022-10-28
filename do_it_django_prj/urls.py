@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from http.client import HTTPResponse
 from django.contrib import admin
 from django.urls import path, include
 
@@ -23,10 +22,10 @@ def root(request):
     return HttpResponse("hello django")
 
 urlpatterns = [
-    path('', root), # 해당주소로 요청이 생기면 이 함수가 처리를 해줄거얌
+    path('', root),
+    path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls')),
     path('diary/', include('diary.urls')),
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
-    path('accounts/', include('accounts.urls')),
 ]

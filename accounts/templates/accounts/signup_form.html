@@ -1,5 +1,12 @@
-    <form action = "" method = "post" novalidate>
+{% extends "accounts/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <h2>signup</h2>
+
+    <form action="" method="post">
         {% csrf_token %}
-        {% bootstrap_form form_type %}
-        <input type = "submit" class = "btn btn-primary" />
+        {% bootstrap_form form %}
+        <input type="submit" value="Signup" />
     </form>
+{% endblock %}

@@ -1,20 +1,15 @@
 {% extends "diary/base.html" %}
 
 {% block content %}
-
-         {% for element in all_about %}
-
-         <h2>
-            <a href = "{{ element.get_absolute_url }}"> 
-            {{ element.title }}
-            </a>
-        </h2>
-        <p>{{ element.message }}<p>
-         <h4>{{ element.created_at }}</h4>
-
+    <ul>
+        {% for memory in all_about %}
+            <li>
+                <a href="/diary/{{ memory.pk }}/">
+                    {{ memory.title }}
+                </a>
+            </li>
         {% endfor %}
-
-        <hr/>
-        <a href = "/diary/new/">❤ 새로운 일기 쓰기 ❤</a>
-
+    </ul>
+    <hr>
+    <a href="/diary/new/">New Memory</a>
 {% endblock %}
