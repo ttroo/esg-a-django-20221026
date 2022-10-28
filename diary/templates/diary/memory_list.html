@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>! memory_list !</title>
+</head>
+<body>
+    
+    <h1>memory_list</h1>
+
+         {% for element in all_about %}
+
+         <h2>
+            <a href = "{{ element.get_absolute_url }}"> 
+            {{ element.title }}
+            </a>
+        </h2>
+        <p>{{ element.message }}<p>
+         <h4>{{ element.created_at }}</h4>
+
+        {% endfor %}
+
+        <hr/>
+        <a href = "/diary/new/">❤ 새로운 일기 쓰기 ❤</a>
+
+</body>
+</html>

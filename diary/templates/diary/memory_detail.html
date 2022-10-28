@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>! memory_detail !</title>
+</head>
+<body>
+
+    <h1>memory_detail</h1>
+
+    <nav>
+        <a href = "/diary">나의 일기장</a>
+    </nav>
+
+    <h1>{{only_one.title}}</h1>   
+    <h4>{{only_one.created_at}}</h4>
+    <p>{{only_one.message}}</p>
+
+    <img src ='/static/img/1.jpg' alt = '강아지' height = '250'>
+
+    <hr/>
+
+    <a href = "/diary/{{ only_one.pk }}/edit/">일기를 수정하고 싶어!</a>
+</body>
+</html>
