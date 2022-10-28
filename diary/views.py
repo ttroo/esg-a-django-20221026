@@ -12,6 +12,7 @@ def memory_detail(request, pk):
     only_one = Diary.objects.get(pk=pk)
     return render(request, "diary/memory_detail.html", {"only_one" : only_one,})
 
+############################## 생성 ##############################
 def memory_new(request):
     if request.method == "GET":
         form_type = DiaryForm()
@@ -23,8 +24,7 @@ def memory_new(request):
 
     return render(request, "diary/memory_new.html", {"form_type" : form_type,})
 
-##############################
-
+############################## 수정 ##############################
 def memory_edit(request, pk):
     memory = Diary.objects.get(pk=pk)
     if request.method == "GET":
@@ -36,3 +36,12 @@ def memory_edit(request, pk):
             return redirect(diary)
 
     return render(request, "diary/memory_new.html", {"form_type" : form_type,})
+
+############################## 삭제 ##############################
+def memory_delete(request, pk):
+    memory = Diary.objects.get(pk=pk)
+    if request.method == "POST":
+         memory.delete()
+         return redirect("/diary/")
+
+    return render(request, "diary/memory_confirm_delete.html", {"memory": memory})
